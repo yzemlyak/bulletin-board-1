@@ -1,10 +1,10 @@
 <div>
   <div>
     <h1>
-      <%= @the_board.name %> 
+      <%= @the_board.name %>
     </h1>
 
-    <hr>  
+    <hr>
   </div>
 </div>
 
@@ -14,23 +14,22 @@
 
 <form action="/insert_post" method="post">
   <div>
-    <label for="title_field"></label>
+    <label for="title_field">Title</label>
     <input id="title_field" type="text" name="query_title">
   </div>
-  
+
   <div>
     <label for="body_field">Body</label>
     <textarea name="query_body" id="body_field" cols="30" rows="10"></textarea>
   </div>
-  
+
   <div>
     <label for="expires_on_field">Expires on</label>
     <input type="date" id="expires_on_field" name="query_expires_on">
   </div>
-  
-  <input type="hidden" id="board_id_field" name="query_expires_on" value="<%= @the_board.id %>">
 
-  
+  <input type="hidden" id="board_id_field" name="query_board_id" value="<%= @the_board.id %>">
+
   <button>
     Add post
   </button>
@@ -48,13 +47,13 @@
     <th>Expires on</th>
   </tr>
 
-<% matching_posts.each do |a_post| %>
-  <tr>
-    <th><% a_post.title %></th>
-    <th><% a_post.body %></th>
-    <th><% a_post.created_at.strftime("%b %e, %Y") %></th>
-    <th><% a_post.expires_on.strftime("%b %e, %Y") %></th>
-  </tr>
-<% end %>
+  <% matching_posts.each do |a_post| %>
+    <tr>
+      <th><%= a_post.title %></th>
+      <th><%= a_post.body %></th>
+      <th><%= a_post.created_at.strftime("%b %e, %Y") %></th>
+      <th><%= a_post.expires_on.strftime("%b %e, %Y") %></th>
+    </tr>
+  <% end %>
 
 </table>
