@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-root to:"boards#index"
+ 
 #I seem to be missing the user.rb and under models-->concerns and also the devise.rb under config --> initializers 
-#get("/", {:controller => "boards", :action => "index"})  
+  get("/", {:controller => "boards", :action => "index"})  
   
   # Routes for the Post resource:
   
